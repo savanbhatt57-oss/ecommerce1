@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Product</title>
+    <link rel="stylesheet" href="{% static 'css/view_product.css' %}">
+</head>
+<body>
+
+{% include 'admin/header.html' %}
+  {% if messages %}
+        {% for m in messages %}
+            <script>
+                alert("{{ m }}");
+            </script>
+        {% endfor %}
+     {% endif %}
+
+<div class="page-wrapper">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div>
+            <h2>Product Details</h2>
+            <p>View product information</p>
+        </div>
+        <a href="{% url 'view_product' %}" class="btn-add">← Back</a>
+    </div>
+
+    <!-- PRODUCT GRID (same as categories) -->
+    <div class="category-grid">
+
+        {% for p in product %}
+        <div class="category-card">
+
+            <!-- IMAGE -->
+            <div class="category-image">
+                <img src="{{ p.image }}" alt="{{ p.1 }}">
+            </div>
+
+            <!-- CONTENT -->
+            <div class="category-body">
+                <h3>{{ p.name }}</h3>
+                <p class="price">₹{{ p.price }}</p>
+                <p class="desc">{{ p.description }}</p>
+
+                <div class="category-actions">
+                    <a href="{% url 'edit_product' p.id %}" class="btn edit">Edit</a>
+                    <a href="{% url 'delete_product' p.id %}"
+                       class="btn delete"
+                       onclick="return confirm('Are you sure?')">
+                       Delete
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* ================= GLOBAL ================= */
+body {
+    background-color: #f8fdf8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(to bottom, #f0fff4, #ffffff);
+}
+
+.hero-badge {
+    color: #22c55e;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #111;
+}
+
+.hero-section h1 span {
+    color: #22c55e;
+}
+
+.hero-section p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #555;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn-primary {
+    background-color: #22c55e;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.btn-outline {
+    border: 2px solid #22c55e;
+    color: #22c55e;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ================= SECTION HEADER (COMMON FOR ALL TITLES) ================= */
+.section-header {
+    text-align: center;
+    margin: 60px 0 30px;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 6px;
+}
+
+.section-header p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* ================= CATEGORIES ================= */
+.categories-section {
+    padding: 60px 40px;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ================= PRODUCTS ================= */
+.electronics-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 0 40px 60px;
+}
+
+.product-card {
+    background: #f8fff8;
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.product-image {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.price {
+    color: #22c55e;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.add-to-cart {
+    margin-top: 14px;
+    background: #fff;          /* Theme green */
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;          /* Perfect circle */
+    color: #ffffff;             /* White cart icon */
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.add-to-cart:hover {
+    background: #16a34a;         /* Darker green on hover */
+    transform: scale(1.08);
+}
+
+
+/* ================= OFFERS ================= */
+.offers-section {
+    padding: 60px 40px;
+}
+
+.offers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.offer-card {
+    color: white;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: left;
+}
+
+.offer-card h3 {
+    font-size: 20px;
+}
+
+.offer-card p {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.offer-card span {
+    font-size: 14px;
+}
+
+/* Offer Colors */
+.green {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.orange {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.purple {
+    background: linear-gradient(135deg, #a855f7, #7e22ce);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .electronics-products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .offers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .electronics-products {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-section h1 {
+        font-size: 32px;
+    }
+}
+
+/* ===== HOME FAQ SECTION ===== */
+
+.faq-home-section {
+    background: #f6fdf8;
+    padding: 70px 20px;
+}
+
+.faq-home-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.faq-home-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border: 1px solid #e5f5ec;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.04);
+}
+
+.faq-home-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.faq-home-card p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Center FAQ Link */
+.faq-link-center {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.faq-link-center a {
+    font-size: 15px;
+    font-weight: 600;
+    color: #16a34a;
+    text-decoration: none;
+}
+
+.faq-link-center a:hover {
+    text-decoration: underline;
+}
+

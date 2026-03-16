@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/footer.css' %}">
+
+<footer>
+    <div class="footer-top">
+        <!-- Company Info -->
+        <div class="company-info">
+        <h3>E-Supermart</h3>
+        <p>Your trusted store for the latest electronic products and gadgets.</p>
+        <p>Email: support@e-supermart.com</p>
+        <p>Phone: +91 75671 89039</p>
+    </div>
+
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <h4>Quick Links</h4>
+            <a href="{% url 'home' %}" class="active">Home</a>
+            <a href="{% url 'product' %}"class="active">Product</a>
+            <a href="{% url 'contact' %}"class="active">Contact</a>
+            <a href="{% url 'feedback' %}"class="active">Feedback</a>
+        </div>
+
+        <!-- Social Media -->
+        <div class="social-media">
+            <h4>Follow Us</h4>
+            <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 ElectroShop. All rights reserved.</p>
+    </div>
+</footer>
+

@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f7f7fb;
+}
+
+/* Main wrapper */
+.login-page {
+    min-height: calc(100vh - 200px); /* adjust for header+footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+/* Login card */
+.login-box {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Title */
+.login-box h2 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    text-align: center;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* Inputs */
+.login-box input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: #f3f3f3;
+}
+
+.login-box input:focus {
+    border-color: #5b3cc4;
+    background: #fff;
+}
+
+/* Login button */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #5b3cc4;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.login-box button:hover {
+    background: #4a2fb0;
+}
+
+/* OR text */
+.or-text {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 13px;
+    color: #666;
+}
+
+/* Google button */
+.google-btn {
+    display: block;
+    text-align: center;
+    padding: 12px;
+    background: #db4437;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Forgot password */
+.forgot-box {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: #5b3cc4;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.forgot-box:hover {
+    text-decoration: underline;
+}
+
+/* Message */
+.msg {
+    margin-top: 15px;
+    font-size: 14px;
+    color: red;
+    text-align: center;
+}
+

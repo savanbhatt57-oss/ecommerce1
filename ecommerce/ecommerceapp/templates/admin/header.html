@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/admin_header.css' %}">
+
+<div class="admin-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            🛒
+            <div>
+                <h3>E-Supermart</h3>
+                <small>Admin Panel</small>
+            </div>
+        </div>
+
+        <!-- MENU (INSIDE SIDEBAR) -->
+        <nav class="menu">
+            <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+            <a href="{% url 'product_category' %}">Categories</a>
+            <a href="{% url 'add_product' %}">Add Product</a>
+            <a href="{% url 'view_product' %}">Product</a>
+            <a href="{% url 'electronics_feedback' %}">Feedback</a>
+            <a href="{% url 'users' %}">Users</a>
+        </nav>
+
+            <a href="{% url 'admin_logout' %}">Logout</a>
+    </aside>
+
+    <!-- MAIN CONTENT START -->
+    <main class="main-area">

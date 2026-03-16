@@ -1,0 +1,95 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+
+<div class="register-page">
+
+    <div class="register-box">
+        <h2>Create Account</h2>
+        <p class="subtitle">Join ElectroShop to start shopping</p>
+
+        <form method="POST" onsubmit="return validateForm()">
+            {% csrf_token %}
+
+            <!-- Full Name (Only letters and spaces allowed) -->
+            <input type="text" name="name" id="name"
+                   placeholder="Full Name"
+                   pattern="^[A-Za-z ]+$"
+                   title="Only letters and spaces allowed"
+                   required>
+
+            <!-- Email (Proper email format) -->
+            <input type="email" name="email" id="email"
+                   placeholder="Email Address"
+                   required>
+
+            <!-- Phone (Only 10 digits allowed) -->
+            <input type="text" name="phone" id="phone"
+                   placeholder="Phone Number"
+                   pattern="[0-9]{10}"
+                   maxlength="10"
+                   title="Enter 10 digit phone number"
+                   required>
+
+            <!-- Password (Letters + Numbers required) -->
+            <input type="password" name="password" id="password"
+                   placeholder="Password"
+                   title="Password must contain letters and numbers (minimum 6 characters)"
+                   required>
+
+            <!-- Confirm Password -->
+            <input type="password" name="cpassword" id="cpassword"
+                   placeholder="Confirm Password"
+                   title="Password must contain letters and numbers (minimum 6 characters)"
+                   required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        {% if msg %}
+            <p class="msg">{{ msg }}</p>
+        {% endif %}
+
+        <p class="login-link">
+            Already have an account? <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+
+</div>
+
+{% include 'client/footer.html' %}
+
+<!-- Password Match & Complexity Validation -->
+<script>
+function validateForm() {
+    var password = document.getElementById("password").value;
+    var cpassword = document.getElementById("cpassword").value;
+
+    // Check if passwords match
+    if (password !== cpassword) {
+        console.error("Password validation failed: passwords do not match.");
+        alert("Passwords do not match. Please try again.");
+        return false; // Prevent form submission
+    }
+
+    // Check password complexity (letters + numbers, min 6 chars)
+    var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
+    if (!passwordPattern.test(password)) {
+        alert("Password must be at least 6 characters long and contain both letters and numbers.");
+        return false; // Prevent form submission
+    }
+
+    return true; // Form is valid
+}
+</script>
+
+</body>
+</html>

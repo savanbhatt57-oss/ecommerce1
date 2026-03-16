@@ -1,0 +1,45 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+
+<header class="site-header">
+    <div class="header-container">
+
+        <!-- Logo -->
+        <div class="logo">
+        <a href="{% url 'home' %}">
+        <span>E</span>-Supermart
+    </a>
+</div>
+
+
+        <!-- Navigation -->
+        <nav class="nav-menu">
+            <a href="{% url 'home' %}" class="active">Home</a>
+            <a href="{% url 'product' %}"class="active">Product</a>
+            <a href="{% url 'contact' %}"class="active">Contact</a>
+            <a href="{% url 'feedback' %}"class="active">Feedback</a>
+        </nav>
+
+        <!-- Right Actions -->
+        <div class="header-actions">
+            {% if request.session.user %}
+            <!-- Cart -->
+            <a href="{% url 'cart' %}" class="cart-btn">
+                    🛒
+            </a>
+
+
+            <!-- Auth Buttons -->
+            <div class="auth-buttons">
+                <a href="{% url 'logout' %}"class="btn btn-primary">logout</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn btn-outline">Login</a>
+                <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+            </div>
+            {% endif %}
+        </div>
+
+    </div>
+</header>
+
+

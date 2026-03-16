@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users | e-shop</title>
+    <link rel="stylesheet" href="{% static 'css/users.css' %}">
+</head>
+<body>
+{% include 'admin/header.html' %}
+{% if messages %}
+        {% for m in messages %}
+            <script>
+                alert("{{ m }}");
+            </script>
+        {% endfor %}
+     {% endif %}
+
+
+<!-- ===== MAIN CONTENT ===== -->
+<div class="main">
+
+    <h2>User Management</h2>
+
+    <!-- ===== STATS ===== -->
+    <div class="stats">
+        <div class="card blue">
+            Total Users
+            <b>{{ total_users }}</b>
+        </div>
+
+        <div class="card green">
+            Active Users
+            <b>{{ active_users }}</b>
+        </div>
+
+        <div class="card red">
+            Blocked Users
+            <b>{{ blocked_users }}</b>
+        </div>
+
+        <div class="card orange">
+            Administrators
+            <b>{{ admin_users_count}}</b>
+        </div>
+    </div>
+
+    <!-- ===== USERS TABLE ===== -->
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Join Date</th>
+                <th>Orders</th>
+                <th>Spent</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for u in users %}
+            <tr>
+                <!-- USER -->
+                <td>
+                    <strong>{{ u.1|title }}</strong><br>
+                    <small>{{ u.2 }}</small>
+                </td>
+
+                <!-- ROLE -->
+                <td>
+                    <span class="badge {% if u.3 == 'admin' %}admin{% else %}user{% endif %}">
+                        {{ u.3 }}
+                    </span>
+                </td>
+
+                <!-- STATUS -->
+                <td>
+                    <span class="status {% if u.4 == 'active' %}active{% else %}blocked{% endif %}">
+                        {{ u.4 }}
+                    </span>
+                </td>
+
+                <!-- JOIN DATE -->
+                <td>{{ u.7|date:"d M Y" }}</td>
+
+                <!-- ORDERS -->
+                <td>{{ u.5 }}</td>
+
+                <!-- SPENT -->
+                <td>₹{{ u.6 }}</td>
+
+                <!-- ACTIONS -->
+                <td class="actions">
+
+                    {% if u.4 == 'active' %}
+                        <a href="{% url 'block_user' u.0 %}" class="btn block" title="Block">🚫</a>
+                    {% else %}
+                        <a href="{% url 'unblock_user' u.0 %}" class="btn unblock" title="Unblock">✅</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7" class="empty">
+                    No users found.
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

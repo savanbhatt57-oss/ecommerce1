@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Category</title>
+    <link rel="stylesheet" href="{% static 'css/add_category.css' %}">
+</head>
+<body>
+{% include 'admin/header.html' %}
+ {% if messages %}
+        {% for m in messages %}
+            <script>
+                alert("{{ m }}");
+            </script>
+        {% endfor %}
+     {% endif %}
+
+<div class="main">
+
+    <div class="topbar">
+        <h3>Update Category</h3>
+        <span class="badge">Administrator</span>
+    </div>
+
+    <div class="form-card">
+        <h2>Update Category</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- CATEGORY NAME -->
+            <label>Category Name</label>
+            <input type="text"
+                   name="name"
+                   value="{{ category.1 }}"
+                   required>
+
+            <!-- CURRENT IMAGE -->
+            <label style="margin-top:15px;">Current Image</label>
+
+            {% if category.2 %}
+                <div style="margin:10px 0;">
+                    <img src="{{ category.2 }}"
+                         alt="Category Image"
+                         style="
+                            width:140px;
+                            height:140px;
+                            object-fit:cover;
+                            border-radius:10px;
+                            border:1px solid #ddd;
+                            padding:6px;
+                         ">
+                </div>
+            {% else %}
+                <p style="color:#888;">No image available</p>
+            {% endif %}
+
+            <!-- CHANGE IMAGE -->
+            <label>Change Image (optional)</label>
+            <input type="file" name="image" accept="image/*">
+
+            <!-- ACTION BUTTONS -->
+            <button type="submit">Update Category</button>
+            <a href="{% url 'product_category' %}" class="cancel">Cancel</a>
+        </form>
+    </div>
+
+</div>
+
+</body>
+</html>
+

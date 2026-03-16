@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{% static 'css/admin_login.css' %}">
+</head>
+<body class="login-body">
+
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            alert("{{ m }}");
+        </script>
+    {% endfor %}
+{% endif %}
+
+<div class="login-wrapper">
+
+    <div class="login-box">
+
+        <div class="icon-box">
+            🛍️
+        </div>
+
+        <h2 class="title">Admin Portal</h2>
+        <p class="subtitle">Sign in to manage e-shop</p>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- ✅ Proper Email Format -->
+            <div class="input-group">
+                <label>Email Address</label>
+                <div class="input-icon">
+                    <span class="icon">✉️</span>
+                    <input type="email"
+                           name="email"
+                           placeholder="admin@eshop.com"
+                           required>
+                </div>
+            </div>
+
+            <!-- ✅ Password: Letters + Numbers Required -->
+            <div class="input-group">
+                <label>Password</label>
+                <div class="input-icon">
+                    <span class="icon">🔒</span>
+                    <input type="password"
+                           name="password"
+                           placeholder="Enter Password"
+                           title="Password must contain letters and numbers (minimum 6 characters)"
+                           required>
+                </div>
+            </div>
+
+            <div class="row">
+                <label class="remember">
+                    <input type="checkbox"> Remember me
+                </label>
+            </div>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <button type="submit" class="btn-login">Sign In</button>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Products</title>
+    <link rel="stylesheet" href="{% static 'css/mobile.css' %}">
+</head>
+<body>
+
+<h1 class="page-title">Our Products</h1>
+
+<div class="products-container">
+{% for p in datas %}
+    <div class="category-card">
+
+        <div class="img-box">
+            <img src="{{ p.5 }}" alt="Product">
+        </div>
+
+        <h2>{{ p.1 }}</h2>
+        <p class="price">₹{{ p.4 }}</p>
+
+        <form method="POST" action="{% url 'addtocart' p.0 %}">
+            {% csrf_token %}
+            <input type="hidden" name="product_id" value="{{ p.0 }}">
+            <input type="hidden" name="name" value="{{ p.1 }}">
+            <input type="hidden" name="price" value="{{ p.4 }}">
+            <button type="submit" class="cart-btn">Add to Cart</button>
+        </form>
+    </div>
+{% endfor %}
+</div>
+
+
+{% include 'client/footer.html' %}
+</body>
+</html>

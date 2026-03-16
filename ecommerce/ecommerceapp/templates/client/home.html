@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    {% include 'client/header.html' %}
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroShop - Home</title>
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<body>
+  {% if messages %}
+        {% for m in messages %}
+            <script>
+                alert("{{ m }}");
+            </script>
+        {% endfor %}
+     {% endif %}
+
+<!-- ================= HERO SECTION ================= -->
+<section class="hero-section">
+    <span class="hero-badge">⚡ New Tech Daily</span>
+    <h1>Latest Electronics<br><span>Delivered to Your Doorstep</span></h1>
+    <p>Top-quality electronics at unbeatable prices</p>
+
+    <div class="hero-buttons">
+        <a href="#" class="btn-primary">Shop Now</a>
+        <a href="#" class="btn-outline">Explore Deals</a>
+    </div>
+</section>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="categories-section">
+
+    <!-- SAME HEADER STYLE -->
+    <div class="section-header">
+        <h2>Shop by Category</h2>
+        <p>Browse our wide selection of electronics</p>
+    </div>
+
+    <div class="categories-grid">
+       <div class="category-card">📱 Mobiles</div>
+       <div class="category-card">💻 Laptops</div>
+       <div class="category-card">🧩 Gadgets</div>
+       <div class="category-card">🎧 Headphones</div>
+       <div class="category-card">🍳 Air Fryer</div>
+       <div class="category-card">🔌 Accessories</div>
+    </div>
+</section>
+
+<!-- ================= FEATURED PRODUCTS ================= -->
+<div class="section-header">
+    <h2>Featured Products</h2>
+    <p>Our best-selling items this week</p>
+</div>
+
+    <div class="featured-products electronics-products">
+
+    <div class="product-card">
+    <div class="product-image">📱</div>
+    <h3>Smartphone</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.5)</p>
+    <p class="price" aria-label="Price 699 rupees">₹ 699</p>
+    <button class="add-to-cart">🛒</button>
+    </div>
+
+    <div class="product-card">
+    <div class="product-image">💻</div>
+    <h3>Laptop</h3>
+    <p class="rating">⭐⭐⭐⭐⭐ (4.8)</p>
+    <p class="price" aria-label="Price 1099 rupees">₹ 1099</p>
+    <button class="add-to-cart">🛒</button>
+    </div>
+
+    <div class="product-card">
+    <div class="product-image">🧩</div>
+    <h3>Smart Gadgets</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.6)</p>
+    <p class="price" aria-label="Price 299 rupees">₹ 299</p>
+    <button class="add-to-cart">🛒</button>
+    </div>
+
+    <div class="product-card">
+    <div class="product-image">🎧</div>
+    <h3>Headphones</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.4)</p>
+    <p class="price" aria-label="Price 149 rupees">₹ 149</p>
+    <button class="add-to-cart">🛒</button>
+    </div>
+
+    <div class="product-card">
+    <div class="product-image">🍳</div>
+    <h3>Air Fryer</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.6)</p>
+    <p class="price" aria-label="Price 199 rupees">₹ 199</p>
+    <button class="add-to-cart">🛒</button>
+    </div>
+
+    <div class="product-card">
+    <div class="product-image">🔌</div>
+    <h3>Accessories</h3>
+    <p class="rating">⭐⭐⭐⭐ (4.3)</p>
+    <p class="price" aria-label="Price 49 rupees">₹ 49</p>
+    <button class="add-to-cart">🛒</button>
+    </div>
+
+    </div>
+
+<section class="faq-home-section">
+    <div class="section-header">
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers about our electronics store</p>
+    </div>
+
+    <div class="faq-home-container">
+        {% for faq in faqs|slice:":6" %}
+        <div class="faq-home-card">
+            <h4>❓ {{ faq.question }}</h4>
+            <p>{{ faq.answer }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</section>
+
+
+
+{% include 'client/footer.html' %}
+</body>
+</html>

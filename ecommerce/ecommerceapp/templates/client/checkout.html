@@ -1,0 +1,159 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<link rel="stylesheet" href="{% static 'css/checkout.css' %}">
+
+{% if messages %}
+{% for message in messages %}
+<script>alert("{{ message }}")</script>
+{% endfor %}
+{% endif %}
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<div class="wrapper">
+<div class="container">
+
+<!-- Payment Section -->
+<div class="section">
+<h2>Payment Method</h2>
+
+<div class="payment-options">
+
+<label>
+<input type="radio" name="payment_radio" value="COD" checked>
+Cash on Delivery
+</label>
+
+<label>
+<input type="radio" name="payment_radio" value="UPI">
+UPI Payment
+</label>
+
+</div>
+</div>
+
+
+<!-- Address Section -->
+<div class="section" id="addressDetails">
+
+<form method="POST" action="{% url 'checkout' %}" onsubmit="return validateCheckout()" id="checkoutForm">
+{% csrf_token %}
+
+<h2>Delivery Address</h2>
+
+<input type="text" name="name" id="name" value="{{ checkoutdata.0.name|default:'' }}" placeholder="Full Name" required><br>
+
+<input type="text" name="street" id="street" value="{{ checkoutdata.0.street|default:'' }}" placeholder="Street Address" required><br>
+
+<input type="text" name="city" id="city" value="{{ checkoutdata.0.city|default:'' }}" placeholder="City" required><br>
+
+<input type="text" name="state" id="state" value="{{ checkoutdata.0.state|default:'' }}" placeholder="State" required><br>
+
+<input type="text" name="zip" id="zip" value="{{ checkoutdata.0.zip|default:'' }}" placeholder="ZIP Code" maxlength="6" required><br>
+
+<!-- hidden fields -->
+<input type="hidden" name="payment" id="payment_method">
+<input type="hidden" name="payment_id" id="payment_id">
+
+<button type="submit">Pay Now</button>
+
+</form>
+</div>
+
+
+<!-- Razorpay Section -->
+<div class="section" id="razorpaySection" style="display:none;">
+<h2>Pay Online</h2>
+
+<button id="rzp-button">Pay with Razorpay</button>
+
+</div>
+
+</div>
+</div>
+
+{% include 'client/footer.html' %}
+
+
+<script>
+
+window.onload = function(){
+
+const addressDetails = document.getElementById("addressDetails");
+const razorpaySection = document.getElementById("razorpaySection");
+
+function togglePayment(){
+
+const payment = document.querySelector('input[name="payment_radio"]:checked').value;
+
+if(payment == "COD"){
+addressDetails.style.display="block";
+razorpaySection.style.display="none";
+}
+else{
+addressDetails.style.display="none";
+razorpaySection.style.display="block";
+}
+}
+
+document.querySelectorAll('input[name="payment_radio"]').forEach(radio=>{
+radio.addEventListener('change',togglePayment);
+});
+
+togglePayment();
+
+}
+
+
+function validateCheckout(){
+
+const payment = document.querySelector('input[name="payment_radio"]:checked').value;
+
+if(payment=="COD"){
+document.getElementById("payment_method").value="COD";
+}
+
+return true;
+
+}
+
+
+document.getElementById('rzp-button').onclick=function(e){
+
+var options={
+
+"key":"{{ razorpay_merchant_key }}",
+
+"amount":"{{ amount }}",
+
+"currency":"INR",
+
+"name":"Your Store",
+
+"description":"Test Transaction",
+
+"order_id":"{{ razorpay_order_id }}",
+
+"handler":function(response){
+
+document.getElementById("payment_method").value="UPI";
+document.getElementById("payment_id").value=response.razorpay_payment_id;
+
+document.getElementById("checkoutForm").submit();
+
+},
+
+"theme":{"color":"#3399cc"}
+
+};
+
+var rzp1=new Razorpay(options);
+
+rzp1.open();
+
+e.preventDefault();
+
+}
+
+</script>

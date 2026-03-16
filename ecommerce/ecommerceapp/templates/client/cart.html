@@ -1,0 +1,97 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+
+<div class="cart-container">
+
+    {% if cart %}
+
+    <!-- LEFT SIDE - CART ITEMS -->
+    <div class="cart-table">
+
+        <div class="cart-header">
+            <p>Product</p>
+            <p>Price</p>
+            <p>Action</p>
+        </div>
+
+        {% for item in cart %}
+        <div class="cart-row">
+
+            <div class="cart-product">
+                <img src="{{ item.image }}" alt="">
+                <div>
+                    <h4>{{ item.name }}</h4>
+                </div>
+            </div>
+
+            <div class="cart-price">
+                ₹ {{ item.price|floatformat:2 }}
+            </div>
+
+            <div>
+                <a href="{% url 'remove_cart' item.id %}">
+                    <button class="remove-button">
+                        Remove
+                    </button>
+                </a>
+            </div>
+
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+    <!-- RIGHT SIDE - ORDER SUMMARY -->
+    <div class="total-section">
+
+        <h3>Order Summary</h3>
+
+        {% for item in cart %}
+            <div class="summary-item">
+                <span>{{ item.name }}</span>
+                <span>₹ {{ item.price|floatformat:2 }}</span>
+            </div>
+        {% endfor %}
+
+        <hr>
+
+        <div class="summary-item">
+            <span>Subtotal</span>
+            <span>₹ {{ total|floatformat:2 }}</span>
+        </div>
+
+        <div class="summary-item">
+            <span>Tax (5%)</span>
+            <span>₹ {{ tax|floatformat:2 }}</span>
+        </div>
+
+        <div class="summary-total">
+            <span>Total</span>
+            <span>₹ {{ grand_total|floatformat:2 }}</span>
+        </div>
+        <a href="{% url 'checkout' %}">
+        <button class="checkout-btn">
+        Proceed to Checkout →
+        </button>
+    </a>
+        
+
+    </div>
+
+    {% else %}
+        <h3>Your Cart is Empty</h3>
+    {% endif %}
+
+</div>
+{% include 'client/footer.html' %}
+</body>
+</html>

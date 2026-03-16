@@ -1,0 +1,83 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7f6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Title */
+.page-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Grid Layout - 4 Products Per Row */
+.categories-grid {
+    width: 90%;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);  /* 4 in first row */
+    gap: 25px;
+    padding-bottom: 60px;
+}
+
+/* Card Design */
+.category-card {
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Remove link underline */
+.category-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* Image Section */
+.img-box {
+    background-color: #e8f5e9;   /* Light green */
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-box img {
+    max-width: 120px;
+    max-height: 120px;
+    object-fit: contain;
+}
+
+/* Product / Category Name */
+.category-card h2 {
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #16a34a;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+}

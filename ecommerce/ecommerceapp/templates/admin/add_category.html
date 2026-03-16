@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Category | Admin</title>
+    <link rel="stylesheet" href="{% static 'css/add_category.css' %}">
+</head>
+<body>
+
+{% include 'admin/header.html' %}
+
+{% if messages %}
+    {% for m in messages %}
+        <script>
+            alert("{{ m }}");
+        </script>
+    {% endfor %}
+{% endif %}
+
+<div class="main">
+
+    <div class="topbar">
+        <div>
+            <h3>Add Category</h3>
+            <p class="subtitle">Create a new product category</p>
+        </div>
+        <span class="badge">Administrator</span>
+    </div>
+
+    <div class="form-card">
+        <h2>Create New Category</h2>
+
+        <form method="post" enctype="multipart/form-data" onsubmit="return validateCategory()">
+            {% csrf_token %}
+
+            <!-- Category Name -->
+            <div class="form-group">
+                <label>Category Name</label>
+                <input type="text"
+                       name="name"
+                       id="name"
+                       placeholder="Enter category name"
+                       pattern="^[A-Za-z ]{3,}$"
+                       title="Only letters allowed (minimum 3 characters)"
+                       required>
+            </div>
+
+            <!-- Category Image -->
+            <div class="form-group">
+                <label>Category Image</label>
+                <input type="file"
+                       name="image"
+                       id="image"
+                       accept="image/png, image/jpeg, image/jpg, image/webp"
+                       required>
+            </div>
+
+            <button type="submit">Save Category</button>
+            <a href="{% url 'product_category' %}" class="cancel">Cancel</a>
+
+        </form>
+    </div>
+
+</div>
+
+<!-- JavaScript Validation -->
+<script>
+function validateCategory() {
+
+    const name = document.getElementById("name").value.trim();
+    const imageInput = document.getElementById("image");
+    const file = imageInput.files[0];
+
+    // Extra safety for name
+    const namePattern = /^[A-Za-z ]{3,}$/;
+    if (!namePattern.test(name)) {
+        alert("Category name must contain only letters and be at least 3 characters.");
+        return false;
+    }
+
+    if (file) {
+
+        // File size limit (2MB)
+        if (file.size > 2 * 1024 * 1024) {
+            alert("Image size must be less than 2MB!");
+            return false;
+        }
+
+        // Allowed file types
+        const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/webp"];
+
+        if (!allowedTypes.includes(file.type)) {
+            alert("Only JPG, PNG, or WEBP images are allowed!");
+            return false;
+        }
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>

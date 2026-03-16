@@ -1,0 +1,135 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Background */
+.login-body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f1faf5, #eefaf3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center Wrapper */
+.login-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Card */
+.login-box {
+    width: 420px;
+    background: #ffffff;
+    padding: 45px 40px;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Top Icon */
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background: #22c55e;
+    color: white;
+    font-size: 28px;
+    border-radius: 14px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Titles */
+.title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-top: 6px;
+    color: #6b7280;
+    font-size: 15px;
+}
+
+/* Inputs */
+.input-group {
+    text-align: left;
+    margin-top: 22px;
+}
+
+.input-group label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.input-icon {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 0 12px;
+    background: #fff;
+}
+
+.input-icon .icon {
+    margin-right: 8px;
+    opacity: 0.6;
+}
+
+.input-icon input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.input-icon:focus-within {
+    border-color: #22c55e;
+}
+
+/* Row */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 18px 0 25px;
+    font-size: 14px;
+}
+
+.forgot {
+    color: #22c55e;
+    text-decoration: none;
+}
+
+/* Button */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(to right, #22c55e, #4ade80);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+}
+
+/* Error */
+.error {
+    color: red;
+    margin-bottom: 10px;
+    font-size: 14px;
+}

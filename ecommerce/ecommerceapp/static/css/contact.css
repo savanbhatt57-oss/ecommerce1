@@ -1,0 +1,137 @@
+/* Page background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8fdf8;
+}
+
+/* Page section */
+.contact-page {
+    padding: 60px 40px 100px;
+}
+
+/* Title */
+.contact-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-title h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #111;
+}
+
+.contact-title p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Wrapper */
+.contact-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+}
+
+/* Left form box */
+.contact-form-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.contact-form-box h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.contact-form-box label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+/* Inputs */
+.contact-form-box input,
+.contact-form-box textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+/* Focus */
+.contact-form-box input:focus,
+.contact-form-box textarea:focus {
+    border-color: #22c55e;
+}
+
+/* Button */
+.contact-form-box button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    background: #22c55e;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.contact-form-box button:hover {
+    background: #16a34a;
+}
+
+/* Right info box */
+.contact-info-box {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+}
+
+.contact-info-box h3 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+/* Info items */
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.info-item span {
+    font-size: 22px;
+}
+
+.info-item strong {
+    display: block;
+    font-size: 16px;
+}
+
+.info-item p {
+    margin: 4px 0 0;
+    color: #555;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+

@@ -1,0 +1,102 @@
+/* ===== FOOTER BASE ===== */
+footer {
+    background: #f0fff4;
+    border-top: 1px solid #e4f2e8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== MAIN CONTAINER ===== */
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "quick brand social";
+
+    text-align: center;
+    align-items: flex-start;
+}
+
+/* ===== GRID ORDER ===== */
+.quick-links {
+    grid-area: quick;   /* FIRST */
+}
+
+.company-info {
+    grid-area: brand;   /* CENTER */
+}
+
+.social-media {
+    grid-area: social;  /* LAST */
+}
+
+/* ===== COMPANY INFO ===== */
+.company-info h3 {
+    color: #22c55e;
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.company-info p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+/* ===== SECTION TITLES ===== */
+.quick-links h4,
+.social-media h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #111;
+}
+
+/* ===== LINKS ===== */
+.quick-links a,
+.social-media a {
+    display: block;
+    font-size: 14px;
+    color: #444;
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.quick-links a:hover,
+.social-media a:hover {
+    color: #22c55e;
+}
+
+/* ===== SOCIAL ICON ALIGNMENT ===== */
+.social-media a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ===== FOOTER BOTTOM ===== */
+.footer-bottom {
+    border-top: 1px solid #e4f2e8;
+    text-align: center;
+    padding: 18px 10px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .footer-top {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "brand"
+            "quick"
+            "social";
+        gap: 30px;
+    }
+}

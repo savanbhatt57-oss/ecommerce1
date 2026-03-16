@@ -1,0 +1,63 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+</head>
+<body>
+
+<div class="feedback-wrapper">
+
+    <div class="feedback-left">
+        <h1>Feedback Us</h1>
+        <p>
+            Need to get in touch with us? Either fill out the form with your inquiry
+            or send us your feedback. We’d love to hear from you.
+        </p>
+    </div>
+
+    <div class="feedback-form-card">
+        <form method="post">
+    {% csrf_token %}
+
+    <div class="field">
+        <label>Your Name *</label>
+        <input type="text" name="name" required>
+    </div>
+
+    <div class="field">
+        <label>Rating (1-5) *</label>
+        <select name="rating" required>
+            <option value="">Select Rating</option>
+            <option value="1">1 - Very Bad</option>
+            <option value="2">2 - Bad</option>
+            <option value="3">3 - Average</option>
+            <option value="4">4 - Good</option>
+            <option value="5">5 - Excellent</option>
+        </select>
+    </div>
+
+    <div class="field">
+        <label>Your Comments</label>
+        <textarea name="comments" rows="4"></textarea>
+    </div>
+
+    <!-- Date Field -->
+    <div class="field">
+        <label>Date *</label>
+        <input type="date" name="date" required>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit</button>
+    </form>
+    </div>
+
+</div>
+
+{% include 'client/footer.html' %}
+</body>
+</html>

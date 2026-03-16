@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Categories</title>
+    <link rel="stylesheet" href="{% static 'css/product_category.css' %}">
+</head>
+<body>
+{% include 'admin/header.html' %}
+ {% if messages %}
+        {% for m in messages %}
+            <script>
+                alert("{{ m }}");
+            </script>
+        {% endfor %}
+     {% endif %}
+
+<div class="page-wrapper">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <div>
+            <h2>Product Categories</h2>
+            <p>Organize your products into categories</p>
+        </div>
+        <a href="{% url 'add_category' %}" class="btn-add">+ Add Category</a>
+    </div>
+
+    <!-- CATEGORY GRID -->
+    <div class="category-grid">
+        {% for c in categories %}
+        <div class="category-card">
+
+            <!-- IMAGE -->
+            <div class="category-image">
+                <img src="{{ c.2 }}" alt="{{ c.1 }}">
+            </div>
+
+            <!-- CONTENT -->
+            <div class="category-body">
+                <h3>{{ c.1 }}</h3>
+
+                <div class="category-actions">
+                    <a href="{% url 'edit_category' c.0 %}" class="btn edit">Edit</a>
+                    <a href="{% url 'delete_category' c.0 %}" 
+                       class="btn delete"
+                       onclick="return confirm('Are you sure?');">
+                       Delete
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        {% empty %}
+            <p>No categories added yet</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+</body>
+</html>

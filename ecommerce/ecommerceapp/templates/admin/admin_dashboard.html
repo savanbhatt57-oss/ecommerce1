@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/admin_dashboard.css' %}">
+</head>
+<body>
+{% include 'admin/header.html' %}
+{% if messages %}
+        {% for m in messages %}
+            <script>
+                alert("{{ m }}");
+            </script>
+        {% endfor %}
+     {% endif %}
+<div class="admin-layout">
+    <!-- ===== MAIN ===== -->
+    <div class="main-area">
+
+        <!-- HEADER -->
+        <header class="top-header">
+            <div>
+                <h2>Dashboard</h2>
+                <span>Manage your e-shop</span>
+            </div>
+
+            <div class="profile">
+                <div class="avatar">A</div>
+                <div>
+                    <strong>Admin</strong>
+                    <small>Administrator</small>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTENT -->
+        <section class="content">
+            <div class="welcome-card">
+                <h1>Welcome, Admin 👋</h1>
+                <p>Manage your e-shop efficiently and securely</p>
+            </div>
+        </section>
+
+    </div>
+</div>
+
+</body>
+</html>

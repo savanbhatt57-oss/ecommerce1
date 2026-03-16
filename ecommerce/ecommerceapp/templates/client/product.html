@@ -1,0 +1,32 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Product Categories</title>
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+</head>
+<body>
+
+<h1 class="page-title">Our Product Categories</h1>
+
+<div class="categories-grid">
+    {% for p in datas %}
+    <div class="category-card">
+        <a href="{% url 'cat_detail' p.1 %}">
+            <div class="img-box">
+                <img src="{{ p.2 }}" alt="mobile">
+            </div>
+            <h2>{{ p.1 }}</h2>
+        </a>
+    </div>
+    {% empty %}
+        <p>No Categories Available</p>
+    {% endfor %}
+</div>
+
+{% include 'client/footer.html' %}
+</body>
+</html>

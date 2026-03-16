@@ -1,0 +1,93 @@
+/* Page Background */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f7f6;
+}
+
+/* Wrapper */
+.feedback-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 60px 80px;
+}
+
+/* Left Content */
+.feedback-left {
+    flex: 1;
+}
+
+.feedback-left h1 {
+    font-size: 38px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.feedback-left p {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Form Card */
+.feedback-form-card {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* Field Styling */
+.field {
+    margin-bottom: 20px;
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Inputs */
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+/* Focus Effect */
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    border-color: #22c55e;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+/* Button */
+.submit-btn {
+    width: 100%;
+    background: #22c55e;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Button Hover */
+.submit-btn:hover {
+    background: #16a34a;
+}

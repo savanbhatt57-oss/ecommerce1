@@ -1,0 +1,123 @@
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+.logo a {
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #1f2937;          /* dark gray for main text */
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: #2ecc71;         /* green only for 'e' */
+}
+
+/* ================= NAVIGATION ================= */
+.nav-menu {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #374151;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #2ecc71;
+}
+
+/* ================= RIGHT ACTIONS ================= */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Cart Button */
+.cart-btn {
+  position: relative;
+  font-size: 22px;
+  text-decoration: none;
+  color: #374151;
+  transition: 0.3s;
+}
+
+.cart-btn:hover {
+  color: #2ecc71;
+}
+
+/* Cart Count Badge */
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+/* ================= AUTH BUTTONS ================= */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* Outline Button */
+.btn-outline {
+  border: 1px solid #2ecc71;
+  color: #2ecc71;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: #2ecc71;
+  color: #fff;
+}
+
+/* Primary Button */
+.btn-primary {
+  background: #2ecc71;
+  color: #fff;
+  border: 1px solid #2ecc71;
+}
+
+.btn-primary:hover {
+  background: #27ae60;
+  border-color: #27ae60;
+}
+

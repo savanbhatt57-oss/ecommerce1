@@ -1,0 +1,52 @@
+{% load static %}
+{% include 'client/header.html' %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cart</title>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+</head>
+<body>
+
+<div class="cart-container">
+
+    <h2>My Cart</h2>
+
+    {% if cart %}
+
+    <table border="1" width="100%">
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+
+        {% for item in cart %}
+        <tr>
+            <td>
+                <img src="{{ item.image }}" width="80">
+            </td>
+            <td>{{ item.name }}</td>
+            <td>₹ {{ item.price }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <h3>Total: ₹ {{ total }}</h3>
+
+    <br>
+
+    <a href="{% url 'checkout' %}">
+        <button class="checkout-btn">Proceed To Checkout</button>
+    </a>
+
+    {% else %}
+        <h3>Your Cart Is Empty</h3>
+    {% endif %}
+
+</div>
+
+</body>
+</html>

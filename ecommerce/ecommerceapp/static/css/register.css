@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f6f8fa;
+}
+
+/* Full page center */
+.register-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* White card */
+.register-box {
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Title */
+.register-box h2 {
+    margin-bottom: 5px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Subtitle */
+.register-box .subtitle {
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* Inputs */
+.register-box input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.register-box input:focus {
+    border-color: #22c55e; /* same green as contact page */
+}
+
+/* Button */
+.register-box button {
+    width: 100%;
+    padding: 13px;
+    background: #22c55e; /* main green */
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.register-box button:hover {
+    background: #16a34a; /* darker green on hover */
+}
+
+/* Message */
+.msg {
+    margin-top: 15px;
+    font-size: 14px;
+    color: red;
+}
+
+/* Login link */
+.login-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+.login-link a {
+    color: #22c55e;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
